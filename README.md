@@ -37,17 +37,6 @@ pnpm build:pro
 ```
 react-mobile-ts-template/
 │
-├── .github/                      # GitHub配置
-│   └── workflows/                # CI/CD配置（可选）
-│
-├── .husky/                       # Git Hooks
-│   ├── pre-commit                # 提交前检查
-│   └── commit-msg                # 提交信息检查
-│
-├── .vscode/                      # VSCode配置
-│   ├── extensions.json           # 推荐插件
-│   └── settings.json             # 编辑器设置
-│
 ├── docs/                         # 📄 文档目录（新增）
 │   ├── GETTING_STARTED.md        # 快速开始
 │   ├── MOBILE_ADAPTION.md        # 移动端适配说明
@@ -60,10 +49,6 @@ react-mobile-ts-template/
 ├── public/                       # 静态资源
 │   ├── vite.svg                  # 图标
 │   └── flexible.js               # 备用flexible方案（新增）
-│
-├── scripts/                      # 脚本目录
-│   ├── push.sh                   # Git推送脚本
-│   └── deploy.sh                 # 部署脚本（新增）
 │
 ├── src/                          # 源代码目录
 │   │
