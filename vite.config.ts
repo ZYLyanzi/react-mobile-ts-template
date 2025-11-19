@@ -1,0 +1,103 @@
+import { inspectorServer } from '@react-dev-inspector/vite-plugin';
+import react from '@vitejs/plugin-react-swc';
+import { resolve } from 'node:path';
+import process from 'node:process';
+import { ConfigEnv, UserConfig, defineConfig, loadEnv } from 'vite';
+import checker from 'vite-plugin-checker';
+import svgr from 'vite-plugin-svgr';
+
+export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
+  // 获取`.env`环境配置文件
+  const env = loadEnv(mode, process.cwd());
+  return {
+    base: env.VITE_NODE_ENV === 'development' ? './' : '/', // 此配置仅为github pages部署用，请自行修改或删除（一般情况下直接移除就行）
+    plugins: [
+      react(),
+      /**
+       * 点击页面元素，IDE直接打开对应代码插件（本项目配置的快捷键是：ctrl+alt+q，详见main.tsx）
+       * @see https://github.com/zthxxx/react-dev-inspector
+       */
+      inspectorServer(),
+      // 在浏览器中直接看到上报的类型错误（更严格的类型校验）
+      checker({
+        typescript: true,
+        eslint: {
+          useFlatConfig: true,
+          lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
+        },
+      }),
+      // SVG 转 React 组件
+      svgr(),
+    ],
+    resolve: {
+      alias: {
+        '@': resolve(import.meta.dirname, 'src'),
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // additionalData的内容会在每个scss文件的开头自动注入
+          additionalData: `@use "@/styles/scss/index.scss" as *;`, // 引入全局scss变量、样式工具函数等
+        },
+      },
+    },
+    // 反向代理解决跨域问题
+    server: {
+      // open: true,// 运行时自动打开浏览器
+      host: '0.0.0.0', // 局域网别人也可访问
+      port: Number(env.VITE_APP_PORT), //端口号
+      proxy: {
+        [env.VITE_API_BASE_URL]: {
+          target: env.VITE_SERVER_URL,
+          changeOrigin: true,
+          rewrite: (path: string) => path.replace(new RegExp('^' + env.VITE_API_BASE_URL), ''),
+        },
+      },
+    },
+    build: {
+      target: 'es2015', // 移动端兼容性（支持Android 5+, iOS 9+）
+      outDir: env.VITE_OUT_DIR || 'dist',
+      chunkSizeWarningLimit: 1000, // 移动端控制包体积，超过1MB警告
+      rollupOptions: {
+        // 分包
+        output: {
+          chunkFileNames: 'assets/js/[name]-[hash].js', // chunk包输出的文件夹名称
+          entryFileNames: 'assets/js/[name]-[hash].js', // 入口文件输出的文件夹名称
+          assetFileNames: 'assets/[ext]/[name]-[hash].[ext]', // 静态文件输出的文件夹名称
+          // 手动分包，将第三方库拆分到单独的chunk包中（注意这些包名必须存在，否则打包会报错）
+          manualChunks: {
+            'vendor-react': ['react', 'react-dom', 'react-router'],
+            'vendor-ui': ['antd-mobile'], // 移动端UI库单独打包
+            'vendor-utils': [
+              'axios',
+              'dayjs',
+              'immer',
+              'zustand',
+              'ahooks',
+              'classnames',
+              'es-toolkit',
+            ],
+          },
+        },
+      },
+      minify: 'esbuild', // 使用esbuild压缩（更快）
+    },
+    // 预构建的依赖项，优化开发（该优化器仅在开发环境中使用）
+    optimizeDeps: {
+      include: [
+        'react',
+        'react-dom',
+        'react-router',
+        'antd-mobile',
+        'zustand',
+        'classnames',
+        'es-toolkit',
+        'axios',
+        'dayjs',
+        'immer',
+        'ahooks',
+      ],
+    },
+  };
+});

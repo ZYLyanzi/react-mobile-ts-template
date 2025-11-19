@@ -1,0 +1,20 @@
+# 生产环境配置
+
+# 环境标识
+VITE_NODE_ENV=production
+
+# API配置
+VITE_API_BASE_URL=/api
+VITE_SERVER_URL=https://api.example.com
+
+# 移动端配置
+VITE_ENABLE_VCONSOLE=false
+VITE_ENABLE_FLEXIBLE=true
+VITE_DESIGN_WIDTH=750
+VITE_ROOT_VALUE=75
+
+# 端口配置
+VITE_APP_PORT=3000
+
+# 输出目录
+VITE_OUT_DIR=dist

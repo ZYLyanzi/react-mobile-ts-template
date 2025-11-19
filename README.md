@@ -1,93 +1,121 @@
-# react-ts-template
+**中文** | [English](./README.en-US.md)
 
+<h1 align="center">React-Ts-Template</h1>
 
+<p align="center">
+  基于 React 19、TypeScript 和 Vite 7 构建的现代化前端项目模板
+</p>
 
-## Getting started
+> 随着 `create-react-app` 脚手架停止维护，开发者需要一个现代化、高效且开箱即用的 React 项目模板。
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## 🌟 为什么选择 React-Ts-Template？
+- ⚡ **极速开发体验** - 基于 Vite 7 构建，冷启动和热更新速度极快
+- 🚀 **前沿技术栈** - React 19、TypeScript、Zustand、React-Router v7 等最新技术
+- 📦 **开箱即用** - 集成路由、状态管理、请求封装、代码规范等完整解决方案
+- 🛡️ **类型安全** - 完整的 TypeScript 类型定义，保障代码质量
+- 🎨 **现代 CSS** - SCSS 预编译 + BEM 命名规范，样式管理更规范
+- 🔧 **工程化规范** - ESLint、Prettier、Stylelint、Commitlint 等代码质量保障
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## 🚀 快速开始
 
-## Add your files
+# 安装依赖
+pnpm install
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+# 启动开发服务器
+pnpm dev
+
+# 构建生产环境
+pnpm build:pro
+```
+
+## 🧩 核心功能
+
+- **路由懒加载**：封装实现了路由懒加载，提升页面切换性能，减少初始加载时间。（详见`router`）
+- **路由守卫**：封装了灵活的路由守卫管理，确保用户访问权限控制，增强应用的安全性。（详见`router`）
+- **全局状态管理**：提供了 Zustand 全局状态管理示例代码，简化跨组件状态共享，提升开发效率。（详见`store`）
+- **Axios 请求封装**：对 Axios 进行封装，统一处理 HTTP 请求和响应，简化与后端接口的交互流程。（详见[service](./src/services)）
+- **工具函数、hooks**：提供了一些方便实用的工具函数和hooks。（详见[utils](./src/utils)、[hooks](./src/hooks)）
+- **react-dev-inspector集成**：点击页面元素，IDE直接打开对应代码插件，方便开发者调试代码，提高开发效率。(详见[vite.config.ts](./vite.config.ts)）
+- **import顺序自动美化排序**：集成了 prettier-plugin-sort-imports 插件，可以自动美化 import 顺序，提高代码的可读性和可维护性。
+- **其他**：提供一些方便根据环境运行、打包的命令；配置了分包策略；本地反向代理解决跨域；还有详细的`保姆级注释`等等。
+
+## 🛠 技术栈选型
+
+| 类别 | 技术 | 描述 |
+| --- | --- | --- |
+| **核心框架** | React 19 | 最新版 React，更高性能和更流畅的用户体验 |
+| **路由管理** | React-Router v7 | 支持路由懒加载，优化页面切换性能 |
+| **状态管理** | Zustand | 轻量级状态管理库，简单易用 |
+| **样式方案** | SCSS + BEM | 模块化样式管理，结构清晰（可自行选择使用css module `xxx.module.scss`） |
+| **HTTP库** | Axios | 统一处理 HTTP 请求和响应 |
+| **工具库** | ahooks + es-toolkit | 丰富的 React Hooks 和 JS 工具函数 |
+| **构建工具** | Vite 7 | 极速的构建工具，提升开发体验 |
+| **类型检查** | TypeScript | 强大的类型系统，保障代码质量 |
+| **代码规范** | ESLint + Prettier + Stylelint | 统一代码风格，提高代码质量 |
+
+## 📁 项目结构
 
 ```
-cd existing_repo
-git remote add origin https://code.fujfu.com/frontend/react-ts-template.git
-git branch -M master
-git push -uf origin master
+├── .vscode              # VSCode 配置
+├── .husky               # Git Hooks
+├── .github              # GitHub 配置
+├── public               # 静态资源
+├── src                  # 源代码
+│   ├── assets           # 静态资源
+│   ├── components       # 公共组件
+│   ├── hooks            # 自定义 Hooks
+│   ├── views            # 页面组件
+│   ├── router           # 路由配置
+│   ├── services         # 接口封装
+│   ├── store            # 状态管理
+│   ├── styles           # 样式文件
+│   ├── types            # 类型定义
+│   ├── utils            # 工具函数
+│   ├── app.tsx          # 根组件
+│   └── main.tsx         # 入口文件
+├── .env                 # 环境变量
+└── ...                  # 配置文件
 ```
 
-## Integrate with your tools
+## 🎯 特色亮点
 
-- [ ] [Set up project integrations](https://code.fujfu.com/frontend/react-ts-template/-/settings/integrations)
+### 🚀 高性能构建
 
-## Collaborate with your team
+- 基于 Vite 7 构建，冷启动时间快至毫秒级
+- 支持代码分割和动态导入，优化首屏加载速度
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### 🛡️ 完善的类型系统
 
-## Test and Deploy
+- 完整的 TypeScript 类型定义
+- 严格的 tsconfig 配置，开启所有严格检查选项
+- 统一的类型管理，便于维护和协作
 
-Use the built-in continuous integration in GitLab.
+### 🎨 规范化的代码风格
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+- 集成 ESLint、Prettier、Stylelint 三大代码规范工具
+- 统一的 commit message 规范（Commitlint + Husky）
+- 自动格式化代码，保证团队代码风格一致性
 
-***
+### 🔧 强大的开发工具链
 
-# Editing this README
+- react-dev-inspector 集成，点击页面元素直接跳转到源码
+- import 顺序自动排序，提高代码可读性
+- 多环境配置（dev/test/pro），满足不同部署需求
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## 📦 关于路由缓存 keep-alive
 
-## Suggestions for a good README
+> React 官方暂时没有实现 vue \<keep-alive\> 类似的功能。React 官方出于两点考虑拒绝添加这个功能，具体可以自行搜索查阅。为了达到状态保存的效果，官方推荐以下两种手动保存状态的方式：
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+- 将需要保存状态组件的 state 提升至父组件中保存。
+- 使用 CSS visible 属性来控制需要保存状态组件的渲染，而不是使用 if/else，以避免 React 将其卸载。
 
-## Name
-Choose a self-explaining name for your project.
+> 不过也有一些相关库实现了这个功能，如：`react-router-cache-route、react-activation、keepalive-for-react` 等等，如果项目中需要状态缓存处理的数据量较小，那最好还是按照 React 官方的建议，手动解决状态缓存问题。
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## ⚠️ 注意事项
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+> 1. 目前有一些 ui 库或其他第三方库还尚未支持 `react19`，注意甄别安装使用。
+> 2. 本项目并未使用 19 版本的相关特性，如需要可以直接使用如下命令降级到 18 版本。
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+```bash
+pnpm install react@18.3.1 react-dom@18.3.1
+```
