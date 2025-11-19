@@ -30,6 +30,14 @@ const router: RouteObject[] = [
         path: '/404',
         element: LazyLoad(lazy(() => import('@/components/not-fount'))),
       },
+      {
+        path: '/examples/popup-demo',
+        element: LazyLoad(lazy(() => import('@/views/examples/popup-demo'))),
+      },
+      {
+        path: '/examples/hooks-demo',
+        element: LazyLoad(lazy(() => import('@/views/examples/hooks-demo'))),
+      },
       ...routes, // modules 路由
     ],
   },
