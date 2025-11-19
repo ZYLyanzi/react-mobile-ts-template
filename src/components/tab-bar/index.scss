@@ -1,0 +1,29 @@
+.custom-tab-bar {
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+
+  &--fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+}
+
+.tab-bar-wrapper {
+  &.safe-area {
+    background: #fff;
+    border-top: 1px solid #f0f0f0;
+  }
+}
+
+// 为固定 TabBar 预留空间
+.tab-bar-placeholder {
+  height: 100px; // TabBar 默认高度
+  
+  &.with-safe-area {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+

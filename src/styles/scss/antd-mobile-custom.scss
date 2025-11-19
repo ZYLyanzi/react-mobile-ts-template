@@ -1,0 +1,161 @@
+/**
+ * Ant Design Mobile 主题定制
+ * 覆盖组件默认样式
+ */
+
+// ==================== 全局样式变量 ====================
+
+:root:root {
+  // 主题色
+  --adm-color-primary: #1677ff;
+  --adm-color-success: #00b578;
+  --adm-color-warning: #ff8f1f;
+  --adm-color-danger: #ff3141;
+
+  // 文字颜色
+  --adm-color-text: #333333;
+  --adm-color-text-secondary: #666666;
+  --adm-color-weak: #999999;
+
+  // 边框
+  --adm-border-color: #eeeeee;
+
+  // 背景
+  --adm-color-background: #ffffff;
+  --adm-color-box: #f5f5f5;
+
+  // 字体大小（移动端优化）
+  --adm-font-size-1: 18px;
+  --adm-font-size-2: 20px;
+  --adm-font-size-3: 22px;
+  --adm-font-size-4: 24px;
+  --adm-font-size-5: 26px;
+  --adm-font-size-6: 28px;
+  --adm-font-size-7: 30px;
+  --adm-font-size-8: 32px;
+  --adm-font-size-9: 36px;
+  --adm-font-size-10: 40px;
+
+  // 圆角
+  --adm-radius-s: 4px;
+  --adm-radius-m: 8px;
+  --adm-radius-l: 12px;
+}
+
+// ==================== 组件样式定制 ====================
+
+// Button 按钮
+.adm-button {
+  font-size: 28px;
+  border-radius: 8px;
+
+  &-large {
+    height: 88px;
+    padding: 0 40px;
+  }
+
+  &-middle {
+    height: 72px;
+    padding: 0 32px;
+  }
+
+  &-small {
+    height: 56px;
+    padding: 0 24px;
+    font-size: 24px;
+  }
+}
+
+// List 列表
+.adm-list {
+  font-size: 28px;
+
+  &-item {
+    padding: 24px 32px;
+  }
+
+  &-header {
+    padding: 16px 32px;
+    font-size: 26px;
+    color: #999;
+  }
+}
+
+// Input 输入框
+.adm-input {
+  font-size: 28px;
+
+  &-element {
+    &::placeholder {
+      color: #999;
+    }
+  }
+}
+
+// Toast 提示
+.adm-toast {
+  &-main {
+    font-size: 28px;
+  }
+}
+
+// Dialog 对话框
+.adm-dialog {
+  &-header {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  &-content {
+    font-size: 28px;
+  }
+
+  &-button {
+    font-size: 28px;
+  }
+}
+
+// Popup 弹出层
+.adm-popup {
+  &-body {
+    max-height: 90vh; // 限制最大高度
+  }
+}
+
+// Tabs 标签页
+.adm-tabs {
+  &-tab {
+    font-size: 28px;
+  }
+}
+
+// NavBar 导航栏
+.adm-nav-bar {
+  &-title {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  &-left,
+  &-right {
+    font-size: 28px;
+  }
+}
+
+// Card 卡片
+.adm-card {
+  margin: 20px 32px;
+  border-radius: 12px;
+
+  &-header {
+    &-title {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+
+  &-body {
+    font-size: 28px;
+  }
+}
+

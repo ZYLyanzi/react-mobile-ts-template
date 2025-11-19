@@ -1,5 +1,13 @@
-/** 公共样式放置处，main.tsx 中被引入 */
-@import '../css/reset.css'; // 重置样式
+/**
+ * 全局样式入口
+ * main.tsx 中被引入
+ */
+
+// 重置样式（移动端优化）
+@import './reset.scss';
+
+// Ant Design Mobile 主题定制
+@import './antd-mobile-custom.scss';
 
 /** v-show */
 .hide {

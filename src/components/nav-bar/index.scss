@@ -1,0 +1,29 @@
+.custom-nav-bar {
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+}
+
+.nav-bar-wrapper {
+  &.safe-area {
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+  }
+}
+
+// 为固定导航栏预留空间
+.nav-bar-placeholder {
+  height: 90px; // NavBar 默认高度
+  
+  &.with-safe-area {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+

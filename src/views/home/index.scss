@@ -1,112 +1,103 @@
-.pg-home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  padding-top: 200px;
-  text-align: center;
+.home-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 20px;
 
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    transition: filter 300ms;
-    will-change: filter;
-  }
+  // 顶部横幅
+  .home-banner {
+    padding: 80px 32px 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    text-align: center;
 
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-
-  .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-  }
-
-  @keyframes logo-spin {
-    from {
-      transform: rotate(0deg);
+    .banner-title {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
 
-    to {
-      transform: rotate(360deg);
+    .banner-desc {
+      font-size: 28px;
+      opacity: 0.9;
+      margin-bottom: 40px;
+    }
+
+    .banner-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+
+      .tag {
+        padding: 8px 20px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 32px;
+        font-size: 24px;
+        backdrop-filter: blur(10px);
+      }
     }
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-      animation: logo-spin infinite 20s linear;
+  // 卡片样式
+  .home-card {
+    margin: 20px 32px;
+    border-radius: 16px;
+    overflow: hidden;
+
+    .adm-card-header {
+      padding: 24px 32px;
+      background: #fafafa;
+      border-bottom: 1px solid #f0f0f0;
+
+      .adm-card-header-title {
+        font-size: 32px;
+        font-weight: bold;
+      }
+    }
+
+    .adm-card-body {
+      padding: 0;
     }
   }
-  .test-mobile-adaption{
-    font-size: 28px;
-    line-height: 36px;
-    width: 750px;
-    background: red;
-  }
 
-  .card {
-    padding: 2em;
-  }
-
-  .read-the-docs {
-    color: #888;
-  }
-
-  a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-  }
-
-  a:hover {
-    color: #535bf2;
-  }
-
-  body {
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
-    margin: 0;
-  }
-
-  h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
-  }
-
-  button {
-    padding: 0.6em 1.2em;
-    font-family: inherit;
-    font-size: 1em;
-    font-weight: 500;
+  // 功能模块
+  .feature-item {
+    padding: 32px 20px;
+    background: #fff;
+    border-radius: 12px;
+    text-align: center;
     cursor: pointer;
-    background-color: #1a1a1a;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    transition: border-color 0.25s;
-  }
+    transition: all 0.3s;
 
-  button:hover {
-    border-color: #646cff;
-  }
-
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      color: #213547;
-      background-color: #fff;
+    &:active {
+      transform: scale(0.95);
+      background: #fafafa;
     }
 
-    a:hover {
-      color: #747bff;
+    .feature-icon {
+      font-size: 60px;
+      margin-bottom: 16px;
     }
 
-    button {
-      background-color: #f9f9f9;
+    .feature-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 24px;
+      color: #999;
+    }
+  }
+
+  // TabBar 占位符
+  .tab-bar-placeholder {
+    height: 100px;
+
+    &.with-safe-area {
+      padding-bottom: env(safe-area-inset-bottom);
     }
   }
 }
